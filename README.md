@@ -10,14 +10,14 @@ protobuf/transformers conflicts).
 
 ---
 
-## Screenshots
+## <img src="assets/icons/photo_camera.svg" width="20" height="20"> Screenshots
 
 ![Simple Tagger tab with tags and thresholds](assets/screenshot-main.png)
 ![Saved images gallery](assets/screenshot-gallery.png)
 
 ---
 
-## Features
+## <img src="assets/icons/star.svg" width="20" height="20"> Features
 
 * **ONNX-only inference** (`onnxruntime`, CPU or CUDA) — WD taggers (CSV labels)
   and Camie tagger v2 (JSON metadata).
@@ -37,7 +37,7 @@ protobuf/transformers conflicts).
 
 ---
 
-## Installation (Forge Classic portable only)
+## <img src="assets/icons/rocket.svg" width="20" height="20"> Installation (Forge Classic portable only)
 
 1. Copy (or `git clone`) this folder into your extensions directory:
    `<forge-classic>\extensions\simple-tagger`
@@ -49,7 +49,7 @@ protobuf/transformers conflicts).
 
 ---
 
-## Models
+## <img src="assets/icons/package.svg" width="20" height="20"> Models
 
 | Dropdown entry      | Type  | Source repo |
 |---------------------|-------|-------------|
@@ -81,7 +81,7 @@ Use **Rescan models** after adding/removing weight files.
 
 ---
 
-## Settings
+## <img src="assets/icons/settings.svg" width="20" height="20"> Settings
 
 Stored in `settings.json` (created on first run, git-ignored). Copy
 `settings.example.json` → `settings.json` to pre-seed values:
@@ -103,7 +103,7 @@ Console output is quiet by design: one `ready:` line at UI start, plus
 warnings/errors only. Set `"verbose": true` in `settings.json` if you need the
 old full-dict logging on every load/save.
 
-## Adding a language
+## <img src="assets/icons/language.svg" width="20" height="20"> Adding a language
 
 Drop a new `<code>.json` into `locales/` mirroring `en.json` keys
 (`"_name"` holds the display name). It appears in the language dropdown
@@ -111,12 +111,13 @@ automatically — no code changes needed.
 
 ---
 
-## Repository layout
+## <img src="assets/icons/folder.svg" width="20" height="20"> Repository layout
 
 ```
 forge-simple-tagger/
 ├── scripts/simple_tagger.py   # the extension (Forge loads scripts/*.py)
 ├── locales/en.json, uk.json   # UI dictionaries (*.json = a language)
+├── assets/                    # README screenshots + section icons
 ├── models/.gitkeep            # optional self-contained weights dir
 ├── install.py                 # Forge auto-installs onnxruntime + huggingface_hub
 ├── settings.example.json      # seed values for settings.json
@@ -127,6 +128,6 @@ forge-simple-tagger/
 
 ---
 
-## License
+## <img src="assets/icons/license.svg" width="20" height="20"> License
 
 MIT — see [LICENSE](LICENSE).
