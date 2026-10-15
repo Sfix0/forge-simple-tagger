@@ -10,6 +10,13 @@ protobuf/transformers conflicts).
 
 ---
 
+## Screenshots
+
+![Simple Tagger tab with tags and thresholds](assets/screenshot-main.png)
+![Saved images gallery](assets/screenshot-gallery.png)
+
+---
+
 ## Features
 
 * **ONNX-only inference** (`onnxruntime`, CPU or CUDA) — WD taggers (CSV labels)
