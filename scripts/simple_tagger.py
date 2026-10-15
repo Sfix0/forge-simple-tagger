@@ -26,6 +26,7 @@ _SETTINGS_DEFAULTS = {
     "save": True,
     "lang": "en",
     "custom_dir": "",
+    "verbose": False,  # True = log full settings dict on every load/save (noisy)
 }
 
 
@@ -44,8 +45,14 @@ def load_settings():
         for k in _SETTINGS_DEFAULTS:
             if k in data:
                 merged[k] = data[k]
-        print(f"[simple-tagger] load: {merged} <- {SETTINGS_PATH}")
+        # Quiet by default: full-dict logging on every load/save spams the
+        # console (sliders autosave on change). Enable with "verbose": true.
+        if merged.get("verbose"):
+            print(f"[simple-tagger] load: {merged} <- {SETTINGS_PATH}")
         return merged
+    except FileNotFoundError:
+        # First run, nothing saved yet - not an error worth logging.
+        return dict(_SETTINGS_DEFAULTS)
     except Exception as e:
         print(f"[simple-tagger] load failed ({type(e).__name__}: {e}), defaults used. Path: {SETTINGS_PATH}")
         return dict(_SETTINGS_DEFAULTS)
@@ -59,7 +66,8 @@ def save_settings(data):
         with open(tmp_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         os.replace(tmp_path, SETTINGS_PATH)
-        print(f"[simple-tagger] saved: {data} -> {SETTINGS_PATH}")
+        if data.get("verbose"):
+            print(f"[simple-tagger] saved: {data} -> {SETTINGS_PATH}")
         return True
     except Exception as e:
         print(f"[simple-tagger] SAVE FAILED ({type(e).__name__}: {e}). Path: {SETTINGS_PATH}")
@@ -747,6 +755,8 @@ def on_ui_tabs():
     _CUSTOM_DIR = (s.get("custom_dir") or "").strip()
     _scan_extra_locals()
     model_names = sorted(MODELS.keys())
+    print(f"[simple-tagger] ready: model={s.get('model')!r}, lang={_LANG!r}, "
+          f"{len(model_names)} models, custom_dir={_CUSTOM_DIR or '-'}")
     initial_model = s.get("model") if s.get("model") in MODELS else DEFAULT_MODEL
     if initial_model not in MODELS:
         initial_model = model_names[0]

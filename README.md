@@ -87,9 +87,14 @@ Stored in `settings.json` (created on first run, git-ignored). Copy
   "exclude": "",
   "save": true,
   "lang": "en",
-  "custom_dir": ""
+  "custom_dir": "",
+  "verbose": false
 }
 ```
+
+Console output is quiet by design: one `ready:` line at UI start, plus
+warnings/errors only. Set `"verbose": true` in `settings.json` if you need the
+old full-dict logging on every load/save.
 
 ## Adding a language
 
