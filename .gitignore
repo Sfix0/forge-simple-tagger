@@ -1,0 +1,16 @@
+# Local user settings (per-install state, never committed)
+settings.json
+settings.json.tmp
+
+# Model weights (downloaded at runtime, never committed)
+models/*
+!models/.gitkeep
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

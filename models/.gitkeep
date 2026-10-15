@@ -1,0 +1,3 @@
+# Drop downloaded .onnx + .csv / -metadata.json files here.
+# Files are ignored by git (see .gitignore). The extension also looks in
+# <models_path>/tagger_models and in the custom folder from Settings.

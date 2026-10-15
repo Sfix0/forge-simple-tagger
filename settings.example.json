@@ -1,0 +1,9 @@
+{
+  "model": "WD ViT v3 (local)",
+  "gen_thresh": 0.35,
+  "char_thresh": 0.85,
+  "exclude": "",
+  "save": true,
+  "lang": "en",
+  "custom_dir": ""
+}
